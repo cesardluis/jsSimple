@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="es"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="es"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="es"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es"> <!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>jQuery Simple Selector;</title>
+<meta name="description" content="">
+<meta name="author" content="Cesar Luis">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<!-- <script src="https://raw.github.com/LeaVerou/prefixfree/gh-pages/prefixfree.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.0.6-development-only.js"></script> -->
+
+<script src="js/simple.selector.js"></script>
+<link rel="stylesheet" href="css/reset-min.css">
+<link rel="stylesheet" href="css/simple.selector.css">
+
+</head>
+<body>
+	<header>
+		<h1>jQuery Simple Selector</h1>
+	</header>
+	<section>
+		<article>
+			<select name="primer-selt" id="primer-selt" class="jss-simple" style="width:200px">
+				<option value="1">Películas</option>
+				<option value="2">Música</option>
+				<option value="3" selected="selected">momentum going</option>
+				<option value="4">been deprecated from</option>
+				<option value="5">keyboard users</option>
+				<option value="6">keyboard users</option>
+			</select>
+
+			<select name="segundo-selt" id="segundo-selt" class="jss-simple" style="width:250px">
+				<option>Películas</option>
+				<option>Música</option>
+				<option>momentum going</option>
+				<option>been deprecated from</option>
+				<option>keyboard users</option>
+				<option>keyboard users</option>
+			</select>
+
+
+		</article>
+		<article>
+			<select name="disa" id="disa" class="jss-disabled" disabled style="width:200px">
+				<option value="1">Películas</option>
+				<option value="2">Música</option>
+				<option value="3">Deportes</option>
+			</select>
+		</article>
+		<article>
+			<select name="mult" id="mult" multiple class="jss-multiple" style="width:250px">
+				<option value="1">Películas</option>
+				<option value="2">Música</option>
+				<option value="3">momentum going</option>
+				<option value="4">been deprecated from</option>
+				<option value="5">keyboard users</option>
+				<option value="6">keyboard users</option>
+			</select>
+		</article>
+		<div class="jss_wrap jss_mult" id="jss_mult">
+			<div class="jss_box">
+				<div class="jss_item">momentum <span class="jss_delete"></span></div><div class="jss_item">deprecated <span class="jss_delete"></span></div>
+				<input type="text" class="jss_search">
+			</div>
+			<ul class="jss_options">
+				<li class="option_1">momentum</li>
+				<li class="option_2">deprecated</li>
+				<li class="option_3">been deprecated from</li>
+				<li class="option_4">keyboard users</li>
+				<li class="option_5">deprecated from</li>
+				<li class="option_6">Deportes</li>
+			</ul>
+		</div>
+		<div class="jss_wrap jss_mult jss_disable" id="jss_mult">
+			<div class="jss_box">
+				<div class="jss_item">momentum <span class="jss_delete"></span></div><div class="jss_item">deprecated <span class="jss_delete"></span></div>
+				<input type="text" class="jss_search">
+			</div>
+			<ul class="jss_options">
+				<li class="option_1">momentum</li>
+				<li class="option_2">deprecated</li>
+				<li class="option_3">been deprecated from</li>
+				<li class="option_4">keyboard users</li>
+				<li class="option_5">deprecated from</li>
+				<li class="option_6">Deportes</li>
+			</ul>
+		</div>
+
+		<div class="jss_wrap jss_single" id="jjs_simple">
+			<div class="jss_box">
+				<span class="jss_arrow">-</span>
+				<div class="jss_item">momentum</div>
+			</div>
+			<ul class="jss_options"  style="display:none">
+				<li class="option_1 lss_hover">momentum</li>
+				<li class="option_2">deprecated</li>
+				<li class="option_3">been deprecated from</li>
+				<li class="option_4">keyboard users</li>
+				<li class="option_5">deprecated from</li>
+				<li class="option_6">Deportes</li>
+			</ul>
+		</div>
+		<div class="jss_wrap jss_single jss_disable" id="jjs_simple">
+			<div class="jss_box">
+				<span class="jss_arrow">-</span>
+				<div class="jss_item">momentum</div>
+			</div>
+			<ul class="jss_options">
+				<li class="option_1 lss_hover">momentum</li>
+				<li class="option_2">deprecated</li>
+				<li class="option_3">been deprecated from</li>
+				<li class="option_4">keyboard users</li>
+				<li class="option_5">deprecated from</li>
+				<li class="option_6">Deportes</li>
+			</ul>
+		</div>
+	</section>
+	<footer>
+		&copy; 2012 - by Cesar Luis;
+	</footer>
+
+
+</body>
+</html>
