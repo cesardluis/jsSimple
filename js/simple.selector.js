@@ -25,7 +25,9 @@
         },
         single: function(){
             jss = this;
-            var $tplSingle = $('<div class="jss_wrap jss_single" id="jss_'+this.id+'" style="width: '+this.width+'px"><div class="jss_box"  style="width: '+(this.width - 2)+'px"><div class="jss_item"></div><span class="jss_arrow"></span></div><ul class="jss_options" style="width: '+(this.width - 2)+'px; display:none"></ul></div>');
+            var $tplSingle = $('<div class="jss_wrap jss_single" id="jss_'+this.id+'" style="width: '+this.width+'px">'
+                +'<div class="jss_box"  style="width: '+(this.width - 2)+'px"><div class="jss_item"></div><span class="jss_arrow"></span></div>'
+                +'<ul class="jss_options" style="width: '+(this.width - 2)+'px; display:none"></ul></div>');
             var options = this.getOptions();
             if (options.length>0) {
                 for(i in options){
@@ -71,8 +73,64 @@
         },
         multi: function(){
             jss = this;
-            var $tplMulti = $('<div class="jss_wrap jss_mult" id="jss_'+this.id+'" style="width: '+this.width+'px"><div class="jss_box"  style="width: '+(this.width - 2)+'px"><input type="text" class="jss_search"></div><ul class="jss_options" style="width: '+(this.width - 2)+'px; display:none"></ul></div>');
+            var $tplMulti = $('<div class="jss_wrap jss_mult" id="jss_'+this.id+'" style="width: '+this.width+'px">'
+                +'<div class="jss_box"  style="width: '+(this.width - 2)+'px"><div class="jss_selects"></div><input type="text" class="jss_search"></div>'
+                +'<ul class="jss_options" style="width: '+(this.width - 2)+'px; display:none"></ul></div>');
             var options = this.getOptions();
+            if (options.length>0) {
+                for(i in options){
+                    var $optionsLi = $('<li>'+options[i].text+'</li>');
+                    $optionsLi.data("value",options[i].value);
+                    var selects = jss.$elem.val();
+
+                    for (var j = 0; j < selects.length; j++) {
+                        console.log(selects[j]);
+                        if (options[i].value == selects[j]){
+                            $optionsLi.addClass('jss_active');
+                            var $item = $('<div class="jss_item">'+ options[i].text +'<span class="jss_delete"></span></div>');
+                            $('jss_delete',$item).click(function(){
+                                //
+                            }).hover(function(){
+                                $(this).css('opacity', .9);
+                            },function(){
+                                $(this).css('opacity', .6);
+                            });
+                            $('.jss_selects', $tplMulti).append($item);
+                        }
+                    };
+                    /*$optionsLi.data("value",options[i].value).click(function(){
+                        jss.$elem.val($(this).data('value'));
+                        $(".jss_item", $tplMulti).html($(this).html());
+                        $("li", $tplMulti).removeClass('jss_active');
+                        $(this).addClass('jss_active');
+                    }).hover(function() {
+                        $(this).addClass("lss_hover");
+                    },function() {
+                        $(this).removeClass("lss_hover");
+                    });*/
+                    $(".jss_options", $tplMulti).append($optionsLi);
+                }
+            };
+
+            $('.jss_item', $tplMulti).parent().hover(function() {
+                $(this).addClass("jss_box_hover");
+            },function() {
+                $(this).removeClass("jss_box_hover");
+            });
+
+            $('.jss_item, .jss_arrow, li', $tplMulti).click(function(){
+                if(!$('.jss_arrow', $tplMulti).hasClass('jss_arrow_hover')){
+                    $('.jss_arrow', $tplMulti).addClass('jss_arrow_hover');
+                    $('.jss_box', $tplMulti).addClass('jss_active');
+                    $(".jss_options", $tplMulti).show();
+                }else{
+                    $('.jss_arrow', $tplMulti).removeClass('jss_arrow_hover');
+                    $('.jss_box', $tplMulti).removeClass('jss_active');
+                    $(".jss_options", $tplMulti).hide();
+
+                }
+            });
+            this.$elem.after($tplMulti);
 
         },
         getOptions: function(){
@@ -126,5 +184,5 @@
 }) (jQuery, window);
 
 $(function() {
-    $(".jss-simple").jssimple();
+    $(".jss-simple, .jss-multiple").jssimple();
 });
