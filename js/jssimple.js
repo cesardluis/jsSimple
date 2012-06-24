@@ -25,14 +25,6 @@
             $('.jss_options').click(function(e){
                 e.stopPropagation();
             });
-            //for ie
-            if ($.browser.msie  && parseInt($.browser.version, 10) === 7) {
-                var zIndexNumber = 500;
-                $("div").each(function() {
-                    $(this).css('zIndex', zIndexNumber);
-                    zIndexNumber -= 2;
-                });
-            } 
         },
         single: function(){
             var jss = this;
@@ -189,6 +181,14 @@
         }
     }
     $.fn.jssimple = function(opciones) {
+        //for ie
+        if ($.browser.msie  && parseInt($.browser.version, 10) === 7) {
+            var zIndexNumber = 500;
+            $("div").each(function() {
+                $(this).css('zIndex', zIndexNumber);
+                zIndexNumber -= 2;
+            });
+        } 
 
         $.each(this, function(){
             if(typeof opciones == "string") {
