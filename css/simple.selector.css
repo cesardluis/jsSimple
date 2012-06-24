@@ -31,6 +31,9 @@ footer{
 }
 
 /**** Simple Selector*/
+.jss_arrow, .jss_arrow_active, .jss_delete{
+	background: transparent url(../images/sprite.png) no-repeat;
+}
 .jss_wrap{
 	border: none;
 	display: inline-block;
@@ -45,7 +48,7 @@ footer{
 	background-color: #fff;
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
-	border-color: #ddd;
+	border-color: #ccc;
 	border-style: solid;	
 	border-width: 0 1px 1px 1px;
 	left:0;
@@ -54,23 +57,21 @@ footer{
 	top:31;
 }
 .jss_wrap ul li{
-	border-color: #ccc;
-	border-radius: 3px;
+	border-color: #ddd;
+	border-radius: 4px;
 	border-style: solid;
 	border-width: 1px;
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.2); 
 	cursor: pointer;
 	list-style: none;
 	display: block;
-	margin: 3px 3%;
-	padding: 4px;
+	margin: 4px 6px;
+	padding: 3px 4px;
 }
 
 .jss_box{
 	background-color: #fff;
-	border-radius: 3px;
-	border: 1px solid #ddd;
-	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+	border: 1px solid #aaa;
 	font-size: 16px;
 	height: 28px;
 	line-height: 16px;
@@ -81,19 +82,19 @@ footer{
 	cursor: pointer;
 }
 .jss_mult .jss_box{
-	height: auto;
 	padding: 3px 3px 0 3px;
+	height: 25px;
 }
 .jss_disable .jss_box{
 	color: #aaa;
 	cursor: default;
 }
 
-.jss_box_hover{
-	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 5px rgba(0, 0, 0, 0.3);
+.jss_box_hover, .jss_mult > .jss_active{
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 .jss_arrow{
-	background: #fff url(../images/arrow_b.png) no-repeat center center;
+	background-position: 0 0;
 	height: 26px;
 	width: 16px;
 	border-radius: 2px;
@@ -104,8 +105,8 @@ footer{
 	top: 0;
 	display: block;
 }
-.jss_arrow_hover{
-	background: #fff url(../images/arrow_u.png) no-repeat center center;
+.jss_arrow_active{
+	background-position: -18px -1px;
 }
 .jss_disable .jss_arrow{
 	cursor: default;
@@ -123,14 +124,18 @@ footer{
 	
 }
 .lss_hover, .jss_active{
-	background-color: #DBDBDB;
-	border-color: #aaa !important; 
-	color: #222;
+	background-color: #EEE;
+	color: #333;
+}
+ul .lss_hover{
+	background-color: #f0f0f0;
+	border-color: #ccc;
 }
 .jss_mult > .jss_active{
 	background-color: #fff;
-	border-color: #aaa !important; 
-	color: #222;
+}
+.jss_mult ul > .jss_active{
+	display: none;
 }
 .jss_mult .jss_item {
 	margin-right: 5px;
@@ -140,47 +145,22 @@ footer{
 
 .jss_single .jss_item{
 	border-radius: 0;
-	border: 1px solid #DBDBDB;
+	border: 1px solid #fff;
 	display: block; 
 	padding: 5px 6px;
 }
-.jss_item_single{
-	background-color: #E4E4E4;
-	border-radius: 4px;
-	border: 1px solid #ddd;
-	display: block; 
-	padding: 2px 4px;
-	vertical-align: baseline;
-	font-size: 13px;
-
-}
-.jss_selects{
-	*display: inline;
-	display: inline-block;
-	vertical-align: baseline;
-	width: auto;
-}
 .jss_delete{
 	*display: inline;
-	background: transparent url(../images/close.png) no-repeat center center;
+	background-position: right top;
 	cursor: pointer;
 	display: inline-block;
 	vertical-align: middle;
-	filter:alpha(opacity=8);
 	height: 12px;
 	margin-left: 3px;
-	opacity: 0.6;
 	width: 12px;
 }
 .jss_disable .jss_delete{
 	cursor: default;
 	opacity: 0.3;
 	filter:alpha(opacity=5);
-}
-.jss_search{
-	border: none;
-	margin: 0;
-	padding: 0;
-	width: 12px;
-	*border: 0;
 }
