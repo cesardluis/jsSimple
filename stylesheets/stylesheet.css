@@ -265,7 +265,8 @@ img {
   display: inline-block;
   vertical-align: top;
   min-height: 80px;
-  width: 48%
+  width: 48%;
+  font-family: arial;
 }
 
 /*******************************************************************************
