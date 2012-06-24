@@ -21,7 +21,10 @@
             if (this.type == 'single')
                 this.single();
             else
-                this.multi();           
+                this.multi();
+            $('.jss_options').click(function(e){
+                e.stopPropagation();
+            });          
         },
         single: function(){
             var jss = this;
@@ -57,7 +60,8 @@
                 $(this).removeClass("jss_box_hover");
             });
 
-            $('.jss_item, .jss_arrow, li', $tplSingle).click(function(){
+            $('.jss_item, .jss_arrow, li', $tplSingle).click(function(e){
+                e.stopPropagation();
                 if(!$('.jss_arrow', $tplSingle).hasClass('jss_arrow_active')){
                     $('.jss_arrow', $tplSingle).addClass('jss_arrow_active');
                     $('.jss_box', $tplSingle).addClass('jss_active');
@@ -68,6 +72,11 @@
                     $(".jss_options", $tplSingle).hide();
 
                 }
+            });
+            $('body').click(function() {
+                $('.jss_arrow', $tplSingle).removeClass('jss_arrow_active');
+                $('.jss_box', $tplSingle).removeClass('jss_active');
+                $(".jss_options", $tplSingle).hide();
             });
             jss.$elem.after($tplSingle);
         },
@@ -83,7 +92,8 @@
                 $('.jss_delete',$item).data("value", value);
                 $('.jss_box', $tplMulti).height('auto');
 
-                $('.jss_delete',$item).click(function(){
+                $('.jss_delete',$item).click(function(e){
+                    e.stopPropagation();
                     var values = (jss.$elem.val() != null) ? jss.$elem.val(): [];
                     var val = $(this).data('value');
                     for (i in values)
@@ -115,7 +125,8 @@
                             addItem($optionsLi, options[i].text, options[i].value);
                         }
                     }                    
-                    $optionsLi.click(function(){
+                    $optionsLi.click(function(e){
+                        e.stopPropagation();
                         var values = (jss.$elem.val()!= null) ? jss.$elem.val(): [];
                         values.push($(this).data('value'));
                         jss.$elem.val(values);
@@ -136,7 +147,8 @@
                 $(this).removeClass("jss_box_hover");
             });
 
-            $('.jss_box', $tplMulti).click(function(){
+            $('.jss_box', $tplMulti).click(function(e){
+                e.stopPropagation();
                 if(!$(this).hasClass('jss_active')){
                     $(this).addClass('jss_active');
                     $(".jss_options", $tplMulti).show();
@@ -144,6 +156,10 @@
                     $(this).removeClass('jss_active');
                     $(".jss_options", $tplMulti).hide();
                 }
+            });
+            $('body').click(function(){
+                $('.jss_box', $tplMulti).removeClass('jss_active');
+                $(".jss_options", $tplMulti).hide();
             });
 
             jss.$elem.after($tplMulti);
