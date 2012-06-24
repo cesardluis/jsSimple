@@ -214,6 +214,3 @@
     window.jsSimple = jsSimple;
 }) (jQuery, window);
 
-$(function() {
-    $(".jss-simple, .jss-multiple").jssimple();
-});

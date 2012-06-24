@@ -15,9 +15,15 @@
   <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-<script src="js/simple.selector.js"></script>
+<script src="js/jssimple.js"></script>
+<script type="text/javascript">
+	$(function() {
+	    $(".jss-simple, .jss-multiple").jssimple();
+	});
+</script>
 <link rel="stylesheet" href="css/reset-min.css">
-<link rel="stylesheet" href="css/simple.selector.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/jssimple.css">
 
 </head>
 <body>
@@ -25,27 +31,52 @@
 		<h1>jQuery Simple Selector</h1>
 	</header>
 	<section>
+		<h2>Example for use</h2>
+		<h3>Single Select</h3>
 		<article>
-			<select name="primer-selt" id="primer-selt" class="jss-simple" style="width:250px">
-				<option value="1">Películas</option>
-				<option value="2">Música</option>
-				<option value="3" selected="selected">momentum going</option>
-				<option value="4">been deprecated from</option>
-				<option value="5">keyboard users</option>
-				<option value="6">keyboard users</option>
-			</select>
+			<div class="box_desc">				
+				<select name="single-s1" id="single-s1" style="width:250px">
+					<option value="1">Películas</option>
+					<option value="2">Música</option>
+					<option value="3" selected="selected">momentum going</option>
+					<option value="4">been deprecated from</option>
+					<option value="5">keyboard users</option>
+					<option value="6">keyboard users</option>
+				</select>	
+			</div>
+			<div  class="box_desc">
+				<select name="single-s2" id="single-s2" class="jss-simple" style="width:250px">
+					<option value="1">Películas</option>
+					<option value="2">Música</option>
+					<option value="3" selected="selected">momentum going</option>
+					<option value="4">been deprecated from</option>
+					<option value="5">keyboard users</option>
+					<option value="6">keyboard users</option>
+				</select>				
+			</div>
+			
 		</article>
 		<article>
-			<select name="segundo-selt" id="segundo-selt" class="jss-simple" style="width:250px">
-				<option>Películas</option>
-				<option>Música</option>
-				<option>momentum going</option>
-				<option>been deprecated from</option>
-				<option>keyboard users</option>
-				<option>keyboard users</option>
-			</select>
-
-
+			<div class="box_desc">
+				<select name="single-s3" id="single-s3" style="width:250px">
+					<option>Películas</option>
+					<option>Música</option>
+					<option>momentum going</option>
+					<option>been deprecated from</option>
+					<option>keyboard users</option>
+					<option>keyboard users</option>
+				</select>		
+			</div>
+			<div  class="box_desc">
+				<select name="single-s4" id="single-s4" class="jss-simple" style="width:250px">
+					<option>Películas</option>
+					<option>Música</option>
+					<option>momentum going</option>
+					<option>been deprecated from</option>
+					<option>keyboard users</option>
+					<option>keyboard users</option>
+				</select>			
+			</div>
 		</article>
 		<!-- <article>
 			<select name="disa" id="disa" class="jss-disabled" disabled style="width:250px">
@@ -54,25 +85,52 @@
 				<option value="3">Deportes</option>
 			</select>
 		</article> -->
+		<h3>Multiple Select</h3>
 		<article>
-			<select name="mult" id="mult" multiple class="jss-multiple" style="width:300px">
-				<option value="1">Películas</option>
-				<option value="2" selected="selected">Música</option>
-				<option value="3">momentum going</option>
-				<option value="4">been deprecated from</option>
-				<option value="5"  selected="selected">keyboard users</option>
-				<option value="6">keyboard users</option>
-			</select>
+			<div class="box_desc">
+				<select name="mult0" id="mult0" multiple size="3" style="width:300px">
+					<option value="1">Películas</option>
+					<option value="2" selected="selected">Música</option>
+					<option value="3">momentum going</option>
+					<option value="4">been deprecated from</option>
+					<option value="5"  selected="selected">keyboard users</option>
+					<option value="6">keyboard users</option>
+				</select>		
+			</div>
+			<div  class="box_desc">
+				<select name="mult" id="mult" multiple class="jss-multiple" style="width:300px">
+					<option value="1">Películas</option>
+					<option value="2" selected="selected">Música</option>
+					<option value="3">momentum going</option>
+					<option value="4">been deprecated from</option>
+					<option value="5"  selected="selected">keyboard users</option>
+					<option value="6">keyboard users</option>
+				</select>			
+			</div>			
 		</article>
 		<article>
-			<select name="mult2" id="mult2" multiple class="jss-multiple" style="width:300px">
-				<option>Películas</option>
-				<option>Música</option>
-				<option>momentum going</option>
-				<option>been deprecated from</option>
-				<option value="5"  selected="selected">keyboard users</option>
-				<option>keyboard users</option>
-			</select>
+			<div class="box_desc">
+				<select name="mult4" id="mult4" multiple style="width:300px">
+					<option>Películas</option>
+					<option>Música</option>
+					<option>momentum going</option>
+					<option>been deprecated from</option>
+					<option value="5"  selected="selected">keyboard users</option>
+					<option>keyboard users</option>
+				</select>		
+			</div>
+			<div  class="box_desc">
+				<select name="mult3" id="mult3" multiple class="jss-multiple" style="width:300px">
+					<option>Películas</option>
+					<option>Música</option>
+					<option>momentum going</option>
+					<option>been deprecated from</option>
+					<option value="5"  selected="selected">keyboard users</option>
+					<option>keyboard users</option>
+				</select>			
+			</div>			
+
+			
 		</article>
 	</section>
 	<footer>

@@ -1,0 +1,38 @@
+body{
+	background-color: #333;
+	font: 90%/1.4 Verdana, Arial, Helvetica, sans-serif;
+}
+header, section, footer{
+	margin: 0  auto;
+	max-width: 1200px;
+	padding: 10px;
+}
+h1{
+	color: #0071C1;
+	font-size: 3em;
+	text-align: center;
+	text-shadow: 0 0 5px rgba(255, 255, 255, 0.2); 
+}
+section{
+	background-color: #fff;
+	border-radius: 15px;
+	color: #333;
+	font-size: 1em;
+}
+article{
+	padding: 15px;
+	margin: 10px auto;
+
+}
+
+footer{
+	text-align: center;
+	color: #ddd;
+}
+
+.box_desc{
+	display: inline-block;
+	vertical-align: top;
+	min-height: 80px;
+	width: 48%
+}
