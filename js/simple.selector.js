@@ -24,7 +24,15 @@
                 this.multi();
             $('.jss_options').click(function(e){
                 e.stopPropagation();
-            });          
+            });
+            //for ie
+            if ($.browser.msie  && parseInt($.browser.version, 10) === 7) {
+                var zIndexNumber = 500;
+                $("div").each(function() {
+                    $(this).css('zIndex', zIndexNumber);
+                    zIndexNumber -= 2;
+                });
+            } 
         },
         single: function(){
             var jss = this;
@@ -88,7 +96,7 @@
             var options = jss.getOptions();
 
             var addItem = function(elem, text, value){
-                var $item = $('<div class="jss_item">'+ text +'<span class="jss_delete"></span></div>');
+                var $item = $('<div class="jss_item"><span class="jss_text">'+ text +'</span><span class="jss_delete"></span></div>');
                 $('.jss_delete',$item).data("value", value);
                 $('.jss_box', $tplMulti).height('auto');
 
@@ -168,7 +176,7 @@
         zIndex: function(){
             var value = parseInt($('body').data('zindex')) > 0 ? (parseInt($('body').data('zindex')) - 1):999;
             $('body').data('zindex', value);
-            return value;
+            return value;            
         },
         getOptions: function(){
             var options = [];

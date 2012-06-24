@@ -20,8 +20,8 @@ section{
 	font-size: 1em;
 }
 article{
-	padding: 5px;
-	margin: 5px auto;
+	padding: 15px;
+	margin: 10px auto;
 
 }
 
@@ -45,6 +45,7 @@ footer{
 	width: 250px;
 }
 .jss_wrap ul{
+	*position: relative;
 	background-color: #fff;
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
@@ -78,7 +79,6 @@ footer{
 	position: relative;
 }
 .jss_single .jss_box{
-	/* background-color: #F0F0F0; */
 	cursor: pointer;
 }
 .jss_mult .jss_box{
@@ -141,6 +141,12 @@ ul .lss_hover{
 	margin-right: 5px;
 	margin-bottom: 3px;
 	background-color: #E4E4E4;
+	white-space: nowrap;
+	*display: inline;
+	*width: auto;
+	*float: left;
+	*padding-bottom: 3px;
+
 }	
 
 .jss_single .jss_item{
