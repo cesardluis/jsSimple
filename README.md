@@ -14,12 +14,9 @@ Custom select fields with jQuery
 ####HTML Select Simple
 ```html
 <select name="single-s2" id="single-s2" class="jss-select" style="width:250px">
-	<option value="1">Películas</option>
-	<option value="2">Música</option>
-	<option value="3" selected="selected">momentum going</option>
 	<option value="4">been deprecated from</option>
-	<option value="5">keyboard users</option>
-	<option value="6">keyboard users</option>
+	<option value="3" selected="selected">momentum going</option>
+	....
 </select>
 ```
 ####HTML Select Multiple
