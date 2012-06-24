@@ -72,6 +72,9 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Lucida Grande', 'Calibri', Helvetica, Arial, sans-serif;
   letter-spacing: -1px;
 }
+article{
+  padding: 10px 0 35px;
+}
 
 h1 {
   font-size: 36px;
@@ -103,7 +106,11 @@ h6 {
 p {
   margin: 10px 0 15px 0;
 }
-
+select{
+  padding: 3px;
+  font-size: 16px;
+  line-height: 18px;
+}
 footer p {
   color: #f2f2f2;
 }
@@ -159,7 +166,7 @@ img {
 }
 
 pre, code {
-  width: 100%;
+  width: 95%;
   color: #222;
   background-color: #fff;
 
@@ -175,7 +182,7 @@ pre, code {
 }
 
 pre {
-  width: 100%;
+  width: 95%;
   padding: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,.1);
   overflow: auto;
@@ -279,7 +286,7 @@ Full-Width Styles
 
 .inner {
   position: relative;
-  max-width: 640px;
+  max-width: 850px;
   padding: 20px 10px;
   margin: 0 auto;
 }
