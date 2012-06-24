@@ -261,6 +261,12 @@ img {
   width: 100%;
   max-width: 100%;
 }
+.box_desc{
+  display: inline-block;
+  vertical-align: top;
+  min-height: 80px;
+  width: 48%
+}
 
 /*******************************************************************************
 Full-Width Styles
