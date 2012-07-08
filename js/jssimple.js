@@ -15,6 +15,7 @@
             this.config = $.extend({}, this.defaults, opciones);
             this.id = this.$elem.attr('id');
             this.type = (this.$elem.attr("multiple") == undefined) ? 'single': 'mult';
+            this.enable = this.$elem.is(":disabled") ?  false : true;
             this.width = (parseInt(this.$elem.outerWidth()) > 0) ? parseInt(this.$elem.outerWidth()): this.config.width;
             this.$elem.css('display', 'none');
 
@@ -28,8 +29,9 @@
         },
         single: function(){
             var jss = this;
+            var tabindex = jss.$elem.attr("tabindex");
             var $tplSingle = $('<div class="jss_wrap jss_single" id="jss_'+jss.id+'" style="width: '+jss.width+'px">'
-                +'<div class="jss_box"  style="width: '+(jss.width - 2)+'px"><div class="jss_item"></div><span class="jss_arrow"></span></div>'
+                +'<div class="jss_box" tabindex="'+tabindex+'"  style="width: '+(jss.width - 2)+'px"><div class="jss_item"></div><span class="jss_arrow"></span></div>'
                 +'<ul class="jss_options" style="width: '+(jss.width - 2)+'px; display:none; z-index: '+ jss.zIndex()+'"></ul></div>');
             var options = jss.getOptions();
             if (options.length>0) {
@@ -62,22 +64,47 @@
 
             $('.jss_item, .jss_arrow, li', $tplSingle).click(function(e){
                 e.stopPropagation();
-                if(!$('.jss_arrow', $tplSingle).hasClass('jss_arrow_active')){
+                onActive();
+                
+            });
+
+            $tplSingle.find('.jss_box').focus(function(e){
+                e.stopPropagation();
+                onActive();
+            });
+
+            $tplSingle.find('.jss_box').focusout(function(e){
+                $('.jss_arrow', $tplSingle).removeClass('jss_arrow_active');
+                $('.jss_box', $tplSingle).removeClass('jss_active');
+                $(".jss_options", $tplSingle).hide();
+            });
+
+
+            var onActive = function(){
+                //if(!$('.jss_arrow', $tplSingle).hasClass('jss_arrow_active')){
                     $('.jss_arrow', $tplSingle).addClass('jss_arrow_active');
                     $('.jss_box', $tplSingle).addClass('jss_active');
                     $(".jss_options", $tplSingle).show();
-                }else{
+                /*}else{
                     $('.jss_arrow', $tplSingle).removeClass('jss_arrow_active');
                     $('.jss_box', $tplSingle).removeClass('jss_active');
                     $(".jss_options", $tplSingle).hide();
 
-                }
-            });
+                }*/
+            }
             $('body').click(function() {
                 $('.jss_arrow', $tplSingle).removeClass('jss_arrow_active');
                 $('.jss_box', $tplSingle).removeClass('jss_active');
                 $(".jss_options", $tplSingle).hide();
             });
+
+
+
+            if(!jss.enable){
+                $tplSingle.addClass('jss_disable');
+                $tplSingle.find('.jss_box, .jss_item').off('click');
+            }
+
             jss.$elem.after($tplSingle);
         },
         multi: function(){
@@ -184,7 +211,7 @@
         //for ie
         if ($.browser.msie  && parseInt($.browser.version, 10) === 7) {
             var zIndexNumber = 500;
-            $("div").each(function() {
+            $(this).each(function() {
                 $(this).css('zIndex', zIndexNumber);
                 zIndexNumber -= 2;
             });
